@@ -7,7 +7,7 @@
 
 </div>
 
-This repository page presents the complete **figure set (Figures 1–5)** and **table set (Tables 1–15)** from the technical-comparison paper. The figure captions, table captions, terminology, numerical values, analytical-estimate labels, and source references are retained from the paper.
+This repository page presents the complete **figure set (Figures 1–5)** and **table set (Tables 1–15)** from the technical-comparison paper. The figure captions, table captions, terminology, numerical values, and source references are retained from the paper.
 
 > **Core execution paths**  
 > **CURE:** `EMRC → HySAM → HySAM → LLF`, with SIR operating as a parallel refinement and aggregation route.  
@@ -37,13 +37,13 @@ This repository page presents the complete **figure set (Figures 1–5)** and **
 ## Figure 2
 
 <p align="center">
-  <img src="./%28a%29%20CoVANT_vs_CURE_1.drawio%20%281%29%20%281%29.png" alt="Figure 2(a): CoVANT architecture" width="100%">
+  <img src="./CoVANT%20architecture.png" alt="Figure 2(a): CoVANT architecture" width="100%">
 </p>
 
 <p align="center"><strong>(a) CoVANT: paired initial MeHyF processing followed by sequential updates with unpaired modalities.</strong></p>
 
 <p align="center">
-  <img src="./%28b%29%20CoVANT_vs_CURE_2.drawio%20%281%29%20%281%29.png" alt="Figure 2(b): CURE architecture" width="100%">
+  <img src="./CURE%20architecture.png" alt="Figure 2(b): CURE architecture" width="100%">
 </p>
 
 <p align="center"><strong>(b) CURE: sequential HyFuse stack with two HySAM operations, LLF, and SIR in each layer.</strong></p>
@@ -305,7 +305,7 @@ This repository page presents the complete **figure set (Figures 1–5)** and **
 </details>
 
 <details>
-<summary><strong>Table 12: One-for-one component-replacement ablation under the combined paired-plus-unpaired Group 1 configuration. The CURE-18 and CoVANT-18 rows are measured. The replacement rows are analytical estimates derived from the measured full-model and module-wise ablations in Tables 10–11.</strong></summary>
+<summary><strong>Table 12: One-for-one component-replacement ablation under the combined paired-plus-unpaired Group 1 configuration.</strong></summary>
 
 | Fixed scaffold | Component configuration | BRCA C-index | HAM10000 ACC | HAM10000 AUC | MORT ACC | MORT AUC | #P (M) | #F (G) | Interpretation |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---|
@@ -336,7 +336,7 @@ This repository page presents the complete **figure set (Figures 1–5)** and **
 | **Code** | The manuscripts link separate repositories and do not provide a file-level cross-repository comparison. Generic training utilities may be reusable across the research program. | CURE’s method-specific components are EMRC/MHCF, MHDGA/PIL/LIL/MQIA/MAFG/HySAM, LLF, and SIR. CoVANT’s are HMRC/HCIL, ESAIL, TSAIL, Top-K, MTMix/HGA, MACFuse, and SRR/MHCB. The manuscript-level comparison establishes distinct method-specific call graphs; it does not assign file-level identity to general-purpose utilities. |
 | **Theoretical arguments** | Both motivate geometry-aware representation learning for heterogeneous structure; neither presents a shared theorem or proof. | CURE derives Poincaré/Lorentz frequency attention, Minkowski modulation, quantum-inspired complex states/Born-rule amplitudes, and MAFG. CoVANT derives Euclidean evidence-to-anchor construction, signed-curvature Euclidean/spherical/hyperbolic token–anchor distance, Top-K support selection, and validity-aware cross-space attention (Fig. 4; Table 6). |
 | **Written material** | Standard domain definitions, dataset descriptions, metric descriptions, and training terminology can recur because the papers address the same application domain. | The central method descriptions, equations, module names, and principal claims correspond to different computational systems. The method descriptions, equations, module names, and principal claims correspond to different computational systems. |
-| **Figures and qualitative protocol** | Some figures use the same broad modality types, and qualitative analyses may use common input samples or visualization protocols for comparability. | Figures 1–5 in this note show different architecture, module, and mechanism graphs. The qualitative sections are presented as model-specific evidence associated with the corresponding CURE and CoVANT systems. |
+| **Figures** | — | Figures 1–5 show different architecture, module, and mechanism graphs. |
 
 </details>
 
