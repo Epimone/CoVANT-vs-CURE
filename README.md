@@ -3,7 +3,7 @@
 
 # Technical Comparison of CoVANT and CURE
 
-### Three Research Questions, Mixed-Regime Evidence, and Component-Replacement Analysis
+### Three Research Questions, Non-Euclidean Space vs. Hybrid Space Representation Learning, Mixed-Regime Evidence, and Component-Replacement Analysis
 
 </div>
 
