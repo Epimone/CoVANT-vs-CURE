@@ -29,7 +29,20 @@ This repository page presents the complete **figure set (Figures 1–5)** and **
   <img src="./CoVANT_vs_CURE_abstract_overview.drawio%20%281%29%20%281%29.png" alt="Figure 1: Abstract-level distinction between CURE and CoVANT" width="100%">
 </p>
 
-**Figure 1: Abstract-level distinction between CURE (left) and CoVANT (right).** CURE is illustrated as a cascaded fusion system for heterogeneous unpaired modalities. HySAM performs an intermediate fusion in a hyperbolic–quantum representation space, after which LLF separately performs content-aware, mask-gated late fusion and handles missing modalities only after HySAM has completed its cross-fusion. CoVANT is illustrated for a combined regime in which a subject-aligned histopathology–multi-omics pair is integrated together with independently collected unpaired cytology, dermoscopy, and EHR modalities. CoVANT has no LLF. Instead, MeHyF implements dual intermediate fusion: HSpace/MACFuse first constructs a validity-constrained source set and then exchanges Euclidean and triplet-space evidence across modalities and spaces; unavailable sources are removed before attention normalization and context aggregation. This prevents absent evidence from entering the normalization denominator or contaminating the cross-fused context, and the resulting robust state is then carried through CoVANT’s combined paired-plus-unpaired pipeline. SRR subsequently performs a second intermediate aggregation across MeHyF layers. The two panels therefore differ in fusion timing, representation spaces, modality regime, and the location of missing-modality control. **CoVANT source:** p. 2, lines 49–79; p. 3, lines 91–110; App. F.1, p. 22, lines 756–781. **CURE source:** pp. 2–4; Fig. 3; Sec. 3.1; Algorithm 2.
+**Figure 1: Abstract-level distinction between CURE (left) and CoVANT (right).** CURE is illustrated in its grouped
+unpaired-modality configuration, while its paired configurations are evaluated separately. Its cascaded HyFuse pipeline applies
+Hybrid-Space Aware Attention Mixer (HySAM) intermediate fusion to learn non-Euclidean hyperbolic and quantum-inspired
+representations, after which a separate Learnable Late Fusion (LLF) stage performs content-aware late fusion and missing-modality
+control; Shared Information Refinement (SIR) provides an additional refinement route. Conversely, CoVANT is illustrated in
+its combined paired-plus-unpaired configuration, where a subject-aligned histopathology–multi-omics pair is integrated with
+independently collected unpaired cytology, dermoscopy, and clinical modalities through the Multimodal Efficient Hybrid Fusion
+(MeHyF) pipeline. CoVANT has no separate LLF stage. Instead, MeHyF implements dual intermediate fusion through Hybrid
+Space Aware Fusion Attention (HSpace) and Shared Representation Refiner (SRR), where HSpace jointly learns Euclidean and
+triplet-space representations through Euclidean Space–Aware Information Learning and Triplet Space–Aware Information Learning,
+while Mutual Adaptive Cross-Attention Fusion (MACFuse) excludes unavailable modality–space sources before cross-modal and
+cross-space attention normalization and context formation. SRR subsequently performs the second intermediate-fusion stage across
+MeHyF layers. Thus, the two frameworks differ in modality regime, fusion schedule, representation spaces, recurrent shared-state
+construction, and the point at which missing-modality control is applied. **CoVANT source:** p. 2, lines 49–79; p. 3, lines 91–110; App. F.1, p. 22, lines 756–781. **CURE source:** pp. 2–4; Fig. 3; Sec. 3.1; Algorithm 2.
 
 ---
 
