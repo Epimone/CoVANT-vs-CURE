@@ -65,7 +65,27 @@ and the point at which missing-modality control is applied. **CoVANT source:** p
 
 <p align="center"><strong>(b) CURE: sequential HyFuse stack with two HySAM operations, LLF, and SIR in each layer.</strong></p>
 
-**Figure 2: Detailed architecture-level distinction.** In CoVANT (upper), HMRC first refines each input, one HSpace block produces two robust outputs through Euclidean/triplet-space processing and MACFuse, and the accumulated robust state is passed to the next MeHyF layer. Availability masks are used inside MACFuse before cross-modal/cross-space attention weights are normalized and before context is aggregated. SRR receives the already robust HSpace outputs and forms a separate second-stage intermediate-fusion path across layers. In CURE (lower), each HyFuse layer applies EMRC, then HySAM twice, and only afterwards passes the two HySAM outputs to LLF, where availability masks are first used explicitly. In parallel, SIR refines a HySAM-derived tensor. The final CURE representation concatenates the last LLF output with SIR outputs, whereas the final CoVANT representation concatenates the last HSpace robust output with channel-aligned SRR summaries. **CoVANT source:** p. 3, lines 91–110; pp. 5–7, lines 148–248; Eqs. (3), (11)–(16). **CURE source:** p. 3 Fig. 3; p. 4 Sec. 3.1; p. 6 Algorithm 2 and Eqs. (11)–(13); p. 7 Eqs. (14)–(15).
+**Figure 2: Detailed architecture-level distinction between CoVANT (upper) and CURE (lower).** CoVANT is illustrated in its combined
+paired-plus-unpaired configuration. In the initial Multimodal Efficient Hybrid Fusion (MeHyF) layer, subject-aligned histopathology and multi-
+omics modalities are processed in parallel; subsequent MeHyF layers sequentially incorporate independently collected unpaired modalities into the
+accumulated robust shared state. Within each MeHyF layer, Heterogeneous Multimodal Residual Convolution (HMRC) first refines the inputs through
+Ghost-enhanced multi-scale spatial learning. Hybrid Space Aware Fusion Attention (HSpace) then produces validity-conditioned hybrid-space robust
+outputs by preserving fine-grained Euclidean evidence through Euclidean Space–Aware Information Learning (ESAIL), modeling curvature-adaptive
+Euclidean, spherical, and hyperbolic query–anchor relations through Triplet Space–Aware Information Learning (TSAIL), and exchanging Euclidean
+and triplet-space evidence through Mutual Adaptive Cross-Attention Fusion (MACFuse). Availability masks are applied inside MACFuse before
+cross-modal and cross-space attention normalization and context aggregation; consequently, unavailable modality–space sources do not influence the
+robust state propagated to the next MeHyF layer. In parallel, Shared Representation Refiner (SRR) receives the already validity-conditioned HSpace
+outputs, aligns their channel dimensions, and aggregates them across MeHyF layers as CoVANT’s second intermediate-fusion stage. The final CoVANT
+representation concatenates the last HSpace robust output with the channel-aligned SRR summaries. Conversely, CURE is illustrated through its
+sequential HyFuse architecture for grouped unpaired modalities, while its paired configurations are evaluated separately. Each Efficient Hybrid
+Geometry Aware Fusion (HyFuse) layer first applies Efficient Multimodal Residual Convolution (EMRC), followed by two successive Hybrid-Space
+Aware Attention Mixer (HySAM) operations that learn non-Euclidean Poincar´e–Lorentz hyperbolic and quantum-inspired representations. Only after
+these two HySAM cross-fusion operations are completed are their outputs passed to Learnable Late Fusion (LLF), where availability masks are first
+explicitly applied through content-aware late gating. Shared Information Refinement (SIR) separately refines a HySAM-derived representation in
+parallel, while the LLF output forms the recurrent shared state passed to the next HyFuse layer. The final CURE representation concatenates the last
+LLF output with the accumulated SIR-refined summaries. Thus, the two architectures differ in modality organization, representation spaces, fusion
+schedule, missing-modality intervention, recurrent-state construction, cross-layer refinement, and final shared-representation formation. **CoVANT source:** p. 3, lines 91–110; pp. 5–7, lines 148–248; App. F.1, p. 22, lines 756–781; Eqs. (3), (11)–(16). **CURE source:** p. 3, Fig. 3; p. 4, Sec. 3.1; p. 6,
+Algorithm 2 and Eqs. (11)–(13); p. 7, Eqs. (14)–(15).
 
 ---
 
